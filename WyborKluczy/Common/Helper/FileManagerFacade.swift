@@ -13,7 +13,7 @@ class FileManagerFacade {
         let fileManager = FileManager.default
         
         do {
-            let documentDirectory = try fileManager.url(for: .cachesDirectory,
+            let documentDirectory = try fileManager.url(for: .documentDirectory,
                                                         in: .userDomainMask,
                                                         appropriateFor: nil,
                                                         create: false)
