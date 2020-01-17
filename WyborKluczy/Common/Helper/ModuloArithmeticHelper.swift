@@ -36,15 +36,15 @@ class ModuloArithmeticHelper {
     }
     
     func getNWD(a: UInt64, b: UInt64) -> UInt64 {
-        var (a, b) = (a, b)
-        while true {
-            let result = a / b
-            let rest =  a - (result * b)
-            if rest == 0 {
-                return b
-            }
-            (a, b) = (b, rest)
+        var gPrev = b
+        var g = a
+        while g != 0 {
+            let gNext = gPrev % g
+            gPrev = g
+            g = gNext
         }
+        let nwd = gPrev
+        return nwd
     }
 
     func getInverseNumber(a: UInt64, n: UInt64) -> UInt64? {
